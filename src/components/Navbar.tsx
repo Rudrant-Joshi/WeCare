@@ -37,7 +37,7 @@ export default function Navbar({
 
   return (
     <header className="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-gray-100">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="mx-auto px-6 sm:px-10 lg:px-16">
         <div className="flex items-center justify-between h-18">
           {/* Logo */}
           <div 
@@ -45,7 +45,7 @@ export default function Navbar({
             onClick={() => { setTab('home'); setIsOpen(false); }}
             id="brand-logo"
           >
-            <div className="w-10 h-10 rounded-xl bg-teal-500 flex items-center justify-center text-white shadow-md shadow-teal-100 group-hover:scale-105 transition-transform">
+            <div className="w-10 h-10 rounded-xl bg-teal-500 flex items-center justify-center text-white shadow-md shadow-teal-100 group-hover:scale-110 transition-transform icon-hover-bounce">
               <HeartPulse className="w-5 h-5" />
             </div>
             <div>
@@ -65,15 +65,17 @@ export default function Navbar({
           </div>
 
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center gap-1">
+          <nav className="hidden lg:flex items-center gap-1 shrink-0">
             {navItems.map((item) => {
               const isActive = currentTab === item.id;
               return (
-                <button
+                <motion.button
                   key={item.id}
                   id={`nav-${item.id}`}
                   onClick={() => setTab(item.id)}
-                  className={`relative px-4 py-2 text-sm font-medium transition-colors cursor-pointer rounded-lg hover:text-teal-600 ${
+                  whileHover={{ y: -1 }}
+                  whileTap={{ scale: 0.97 }}
+                  className={`relative px-4 py-2 text-sm font-medium transition-colors cursor-pointer rounded-lg hover:text-teal-600 whitespace-nowrap ${
                     isActive ? 'text-teal-600' : 'text-slate-600'
                   }`}
                 >
@@ -85,13 +87,13 @@ export default function Navbar({
                       transition={{ type: 'spring', stiffness: 380, damping: 30 }}
                     />
                   )}
-                </button>
+                </motion.button>
               );
             })}
           </nav>
 
           {/* Desktop Call To Action & Auth Status */}
-          <div className="hidden md:flex items-center gap-4">
+          <div className="hidden lg:flex items-center gap-4 shrink-0">
             {currentUser ? (
               <div className="flex items-center gap-3 bg-teal-50/50 px-3.5 py-1.5 rounded-2xl border border-[#D1E2D4]/50" id="user-profile-badge">
                 <div className="w-8 h-8 rounded-full bg-[#5F7A61] text-white flex items-center justify-center font-bold text-xs uppercase shadow-sm">
@@ -119,18 +121,20 @@ export default function Navbar({
               </button>
             )}
 
-            <button
+            <motion.button
               onClick={onOpenBooking}
               id="cta-book-now"
-              className="inline-flex items-center gap-2 bg-slate-900 hover:bg-slate-800 text-white text-sm font-medium px-5 py-2.5 rounded-xl transition-all shadow-md hover:shadow-lg active:scale-95 cursor-pointer"
+              whileHover={{ scale: 1.04, y: -1 }}
+              whileTap={{ scale: 0.96 }}
+              className="inline-flex items-center gap-2 bg-slate-900 hover:bg-slate-800 text-white text-sm font-medium px-5 py-2.5 rounded-xl transition-all shadow-md hover:shadow-lg cursor-pointer btn-shine"
             >
               <Calendar className="w-4 h-4 text-teal-400" />
               Book Appointment
-            </button>
+            </motion.button>
           </div>
 
           {/* Mobile menu button */}
-          <div className="flex items-center md:hidden">
+          <div className="flex items-center lg:hidden">
             <button
               onClick={() => setIsOpen(!isOpen)}
               id="mobile-menu-toggle"
@@ -149,7 +153,7 @@ export default function Navbar({
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
-            className="md:hidden border-t border-gray-100 bg-white"
+            className="lg:hidden border-t border-gray-100 bg-white"
             id="mobile-nav-panel"
           >
             <div className="px-4 pt-2 pb-6 space-y-1 sm:px-6">

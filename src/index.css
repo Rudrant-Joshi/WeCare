@@ -71,3 +71,206 @@ html, body {
 h1, h2, h3, h4 {
   font-family: var(--font-display);
 }
+
+/* ============================= */
+/* MODERN ANIMATION SYSTEM       */
+/* ============================= */
+
+/* Floating animation for decorative elements */
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-12px); }
+}
+
+/* Subtle pulse glow for badges and status indicators */
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(95, 122, 97, 0.3); }
+  50% { box-shadow: 0 0 16px 4px rgba(95, 122, 97, 0.15); }
+}
+
+/* Shimmer sweep for CTA buttons */
+@keyframes shimmer {
+  0% { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+
+/* Icon spin on hover */
+@keyframes icon-spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Gentle breathing scale for hero showcase */
+@keyframes breathe {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.02); }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+.animate-float-delayed {
+  animation: float 6s ease-in-out infinite 2s;
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 3s ease-in-out infinite;
+}
+
+.animate-breathe {
+  animation: breathe 8s ease-in-out infinite;
+}
+
+/* ============================= */
+/* HOVER CARD SYSTEM              */
+/* ============================= */
+
+/* Modern card lift with glow */
+.card-hover {
+  transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+              box-shadow 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+              border-color 0.3s ease;
+}
+
+.card-hover:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 40px -12px rgba(95, 122, 97, 0.15),
+              0 8px 16px -8px rgba(0, 0, 0, 0.06);
+}
+
+/* Subtler card lift for smaller items */
+.card-hover-sm {
+  transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1),
+              box-shadow 0.3s cubic-bezier(0.22, 1, 0.36, 1),
+              border-color 0.25s ease;
+}
+
+.card-hover-sm:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 24px -8px rgba(95, 122, 97, 0.12),
+              0 4px 8px -4px rgba(0, 0, 0, 0.04);
+}
+
+/* Modern button hover with shine sweep */
+.btn-shine {
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-shine::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.15),
+    transparent
+  );
+  transition: left 0.5s ease;
+}
+
+.btn-shine:hover::before {
+  left: 120%;
+}
+
+/* Icon hover rotate */
+.icon-hover-rotate {
+  transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.group:hover .icon-hover-rotate,
+.icon-hover-rotate:hover {
+  transform: rotate(12deg) scale(1.1);
+}
+
+/* Icon hover bounce */
+.icon-hover-bounce {
+  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.group:hover .icon-hover-bounce {
+  transform: scale(1.15);
+}
+
+/* Magnetic tilt - subtle parallax hover on cards */
+.magnetic-hover {
+  transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: transform;
+}
+
+.magnetic-hover:hover {
+  transform: perspective(600px) rotateX(2deg) rotateY(-2deg) translateY(-4px);
+}
+
+/* Link hover underline animation */
+.link-hover-underline {
+  position: relative;
+  display: inline-block;
+}
+
+.link-hover-underline::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: currentColor;
+  transition: width 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+  border-radius: 1px;
+}
+
+.link-hover-underline:hover::after {
+  width: 100%;
+}
+
+/* Testimonial card hover */
+.testimonial-hover {
+  transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+              box-shadow 0.35s ease,
+              background-color 0.3s ease,
+              border-color 0.3s ease;
+}
+
+.testimonial-hover:hover {
+  transform: translateY(-4px) scale(1.01);
+  box-shadow: 0 16px 32px -8px rgba(0, 0, 0, 0.3);
+}
+
+/* Timeline dot pulse */
+.timeline-dot {
+  position: relative;
+}
+
+.timeline-dot::after {
+  content: '';
+  position: absolute;
+  inset: -4px;
+  border-radius: 50%;
+  border: 2px solid rgba(95, 122, 97, 0.3);
+  animation: pulse-glow 3s ease-in-out infinite;
+}
+
+/* Stats counter hover */
+.stat-hover {
+  transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1),
+              background-color 0.3s ease;
+}
+
+.stat-hover:hover {
+  transform: scale(1.05);
+}
+
+/* Footer link hover */
+.footer-link {
+  transition: color 0.2s ease, padding-left 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.footer-link:hover {
+  padding-left: 6px;
+}
