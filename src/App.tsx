@@ -45,7 +45,14 @@ export default function App() {
   const [isDbCloud, setIsDbCloud] = useState<boolean>(isSupabaseConfigured() || isFirebaseConfigured());
   
   // Auth states
-  const [currentUser, setCurrentUser] = useState<User | null>(null);
+  const [currentUser, setCurrentUser] = useState<User | null>(() => {
+    try {
+      const savedUser = localStorage.getItem('wecare_current_user');
+      return savedUser ? JSON.parse(savedUser) : null;
+    } catch (e) {
+      return null;
+    }
+  });
   const [isAuthOpen, setIsAuthOpen] = useState<boolean>(false);
   const [authMode, setAuthMode] = useState<'login' | 'signup'>('login');
 
@@ -57,15 +64,10 @@ export default function App() {
     checkDb();
   }, []);
 
-  // Seed default admin user on mount & ensure fresh start
+  // Seed default admin user on mount if not already created
   useEffect(() => {
     const initializeUsers = async () => {
       try {
-        // Clear any previous stored session so website starts fresh
-        localStorage.removeItem('wecare_current_user');
-        sessionStorage.removeItem('wecare_current_user');
-        setCurrentUser(null);
-
         const supabaseUsers = await getUsersFromSupabase();
         const firestoreUsers = await getUsersFromFirestore();
         const allUsers = [...supabaseUsers, ...firestoreUsers];
@@ -90,7 +92,6 @@ export default function App() {
     };
     initializeUsers();
   }, []);
-
 
   // Load appointments from Supabase on mount
   useEffect(() => {
@@ -175,8 +176,12 @@ export default function App() {
 
   const handleLoginSuccess = (user: User) => {
     setCurrentUser(user);
+    try {
+      localStorage.setItem('wecare_current_user', JSON.stringify(user));
+    } catch (err) {
+      console.error('Failed to save user session to localStorage:', err);
+    }
   };
-
 
   const handleLogout = async () => {
     if (currentUser) {
@@ -186,6 +191,7 @@ export default function App() {
     setCurrentUser(null);
     try {
       localStorage.removeItem('wecare_current_user');
+      sessionStorage.removeItem('wecare_current_user');
     } catch (err) {
       console.error('Failed to clear current user', err);
     }
