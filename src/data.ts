@@ -1,4 +1,17 @@
 import { Department, Doctor, Testimonial, HealthTip } from './types';
+import doc1Img from './assets/images/doctor_female_1_1784007229646.jpg';
+import doc2Img from './assets/images/doctor_male_1_1784007242312.jpg';
+import doc3Img from './assets/images/doctor_female_2_1784007255685.jpg';
+import doc4Img from './assets/images/doctor_male_2_1784007266674.jpg';
+import doc5Img from './assets/images/doc_img_5_1784007715377.jpg';
+import doc6Img from './assets/images/doc_img_6_1784007727565.jpg';
+import doc7Img from './assets/images/doc_img_7_1784007738996.jpg';
+import doc8Img from './assets/images/doc_img_8_1784007751540.jpg';
+import doc9Img from './assets/images/doc_img_9_1784007764970.jpg';
+import doc10Img from './assets/images/doc_img_10_1784007777433.jpg';
+import doc11Img from './assets/images/doc_img_11_1784007790301.jpg';
+import doc12Img from './assets/images/doc_img_12_1784007805363.jpg';
+import doc13Img from './assets/images/doc_img_13_1784007817411.jpg';
 
 export const DEPARTMENTS: Department[] = [
   {
@@ -113,7 +126,7 @@ export const DOCTORS: Doctor[] = [
     ],
     specialties: ['Interventional Cardiology', 'Preventative Medicine', 'Coronary Artery Disease'],
     email: 's.sterling@wecarehospitals.com',
-    imageUrl: '/src/assets/images/doctor_female_1_1784007229646.jpg'
+    imageUrl: doc1Img
   },
   {
     id: 'doc-2',
@@ -133,7 +146,7 @@ export const DOCTORS: Doctor[] = [
     ],
     specialties: ['Heart Valve Repair', 'Aortic Root Reconstruction', 'Minimally Invasive Surgery'],
     email: 'm.vance@wecarehospitals.com',
-    imageUrl: '/src/assets/images/doctor_male_1_1784007242312.jpg'
+    imageUrl: doc2Img
   },
   {
     id: 'doc-3',
@@ -153,7 +166,7 @@ export const DOCTORS: Doctor[] = [
     ],
     specialties: ['Congenital Heart Defects', 'Fetal Echocardiography', 'Pediatric Arrhythmias'],
     email: 'e.rostova@wecarehospitals.com',
-    imageUrl: '/src/assets/images/doctor_female_2_1784007255685.jpg'
+    imageUrl: doc3Img
   },
 
   // Pediatrics Doctors
@@ -175,7 +188,7 @@ export const DOCTORS: Doctor[] = [
     ],
     specialties: ['Early Childhood Development', 'Immunology & Allergy', 'Adolescent Medicine'],
     email: 'a.patel@wecarehospitals.com',
-    imageUrl: '/src/assets/images/doctor_male_2_1784007266674.jpg'
+    imageUrl: doc4Img
   },
   {
     id: 'doc-5',
@@ -195,7 +208,7 @@ export const DOCTORS: Doctor[] = [
     ],
     specialties: ['Childhood Asthma', 'Cystic Fibrosis', 'Chronic Cough & Allergy'],
     email: 'c.thorne@wecarehospitals.com',
-    imageUrl: '/src/assets/images/doc_img_5_1784007715377.jpg'
+    imageUrl: doc5Img
   },
 
   // Neurology Doctors
@@ -217,7 +230,7 @@ export const DOCTORS: Doctor[] = [
     ],
     specialties: ['Parkinson\'s Disease', 'Cognitive Neurological Disorders', 'Dementia Research'],
     email: 'j.sterling@wecarehospitals.com',
-    imageUrl: '/src/assets/images/doc_img_6_1784007727565.jpg'
+    imageUrl: doc6Img
   },
   {
     id: 'doc-7',
@@ -237,7 +250,7 @@ export const DOCTORS: Doctor[] = [
     ],
     specialties: ['Epilepsy & Seizure Disorders', 'Migraine Management', 'Electroencephalography (EEG)'],
     email: 'm.lin@wecarehospitals.com',
-    imageUrl: '/src/assets/images/doc_img_7_1784007738996.jpg'
+    imageUrl: doc7Img
   },
 
   // Orthopedics Doctors
@@ -259,7 +272,7 @@ export const DOCTORS: Doctor[] = [
     ],
     specialties: ['Hip Arthroplasty', 'Robotic-Assisted Joint Surgery', 'Trauma Reconstruction'],
     email: 'r.lawson@wecarehospitals.com',
-    imageUrl: '/src/assets/images/doc_img_8_1784007751540.jpg'
+    imageUrl: doc8Img
   },
   {
     id: 'doc-9',
@@ -279,7 +292,7 @@ export const DOCTORS: Doctor[] = [
     ],
     specialties: ['ACL & Meniscus Reconstruction', 'Rotator Cuff Surgery', 'Cartilage Restoration'],
     email: 'f.gallagher@wecarehospitals.com',
-    imageUrl: '/src/assets/images/doc_img_9_1784007764970.jpg'
+    imageUrl: doc9Img
   },
 
   // Oncology Doctors
@@ -301,7 +314,7 @@ export const DOCTORS: Doctor[] = [
     ],
     specialties: ['Immunotherapy', 'Targeted Molecular Therapies', 'Solid Tumor Treatment'],
     email: 's.kross@wecarehospitals.com',
-    imageUrl: '/src/assets/images/doc_img_10_1784007777433.jpg'
+    imageUrl: doc10Img
   },
   {
     id: 'doc-11',
@@ -321,7 +334,7 @@ export const DOCTORS: Doctor[] = [
     ],
     specialties: ['Hormonal Oncotherapy', 'Breast Health Management', 'Survivorship Planning'],
     email: 'n.vance@wecarehospitals.com',
-    imageUrl: '/src/assets/images/doc_img_11_1784007790301.jpg'
+    imageUrl: doc11Img
   },
 
   // Dermatology Doctors
@@ -343,7 +356,7 @@ export const DOCTORS: Doctor[] = [
     ],
     specialties: ['Melanoma Screenings', 'Psoriasis Biologics', 'Aesthetic Dermatology'],
     email: 'e.mercer@wecarehospitals.com',
-    imageUrl: '/src/assets/images/doc_img_12_1784007805363.jpg'
+    imageUrl: doc12Img
   },
   {
     id: 'doc-13',
@@ -363,7 +376,7 @@ export const DOCTORS: Doctor[] = [
     ],
     specialties: ['Acne Vulgaris', 'Atopic Dermatitis', 'Contact Allergy Testing'],
     email: 'k.sato@wecarehospitals.com',
-    imageUrl: '/src/assets/images/doc_img_13_1784007817411.jpg'
+    imageUrl: doc13Img
   }
 ];
 
